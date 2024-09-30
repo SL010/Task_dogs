@@ -1,0 +1,19 @@
+FROM python:3.9
+
+WORKDIR /app
+
+# RUN pip install gunicorn==20.1.0
+
+RUN pip install uvicorn daphne
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt --no-cache-dir
+
+COPY . /app/
+
+# CMD ["gunicorn", "--bind", "0.0.0.0:8000", "dogs.wsgi"]
+
+CMD ["uvicorn", "dogs.asgi:application", "--host", "0.0.0.0", "--port", "8000"]
+
+#CMD ["daphne", "-u", "/app/daphne.sock", "dogs.asgi:application"]

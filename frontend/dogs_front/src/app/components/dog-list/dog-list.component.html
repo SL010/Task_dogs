@@ -1,0 +1,16 @@
+<h2>Список собак</h2>
+<ul>
+  <li *ngFor="let dog of dogs">
+    {{ dog.name }} - {{ dog.breed }} ({{ dog.age }} years old)
+  </li>
+</ul>
+
+<div>
+  <h3>Добавить новую собаку</h3>
+  <input type="text" [(ngModel)]="newDog.name" placeholder="Имя собаки" />
+  <input type="number" [(ngModel)]="newDog.age" placeholder="Возраст собаки" />
+  <input type="text" [(ngModel)]="newDog.owner" placeholder="Владелец собаки" />
+  <textarea [(ngModel)]="newDog.description" placeholder="Описание собаки"></textarea>
+  
+  <button (click)="createDog()">Создать собаку</button>
+</div>
