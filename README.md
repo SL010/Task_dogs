@@ -1,4 +1,4 @@
-### Приложение DOGS
+# Приложение DOGS
 
 ### Описание проекта
 ```
@@ -74,6 +74,6 @@ $docker compose exec backend cp -r /app/collected_static/. /backend_static/stati
 ```
 
 
-# Автор: [Борисов Вячеслав]
-# (https://github.com/SL010)
-# Почта: borisov.slava@yandex.ru
+### Автор: [Борисов Вячеслав]
+### (https://github.com/SL010)
+### Почта: borisov.slava@yandex.ru
