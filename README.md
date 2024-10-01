@@ -10,11 +10,9 @@
 Созданы файлы для сбора контейнеров Docker и аркестра docker-compose.
 Настройка Nginx в контейнере как прокси-сервера для раздачи файлов статики и 
 перенаправления запросов.
-```
 
 В планах напольнить фронтенд для реализации полноценного сайта (в настоящее время создан фронтенд на Angular, настроена связь между бэкендом и фронтендем, но не настроен на отображение функционала), развернуть проект на удаленном серве в аркестре контейнеров.
-```
-```
+
 На данный момент в проекте присутствуют следующие эндпоинты:
 
 -/api/token/login      # регистрация пользователя (авторизация через Token)
@@ -27,7 +25,7 @@
 -/api/dogs/<int:id>        # страница просмотра, создания, изменения удаления информации о петомце
 -/chat/<str:room_name>     # страница общего чата
 ```
-```
+
 ### Технологии, использованные при разработке:
 ```
 Python, Django REST Framework, django channels, channels-redis,
@@ -38,8 +36,7 @@ djoser, daphne, WebSocket, gunicorn, Docker, unicorn, daphne, Postgresql
 ```
 -Перейди в директорию с файлом dockerfile и выполни команду:
 $docker built -t dogs_backend .
-```
-```
+
 -Разверните контейнер по собранному образу:
 $docker run --name dogs-container dogs_backend
 ```
@@ -60,20 +57,15 @@ $docker run --name dogs-container dogs_backend
 -переменные для Django-проекта:
 DB_HOST=db
 DB_PORT=5432
-```
 
-```
 -Перейди в директорию с файлом docker-compose.yml и выполни команду:
 $docker compose up
-```
 
 -Выполни миграции:
 $docker compose exec backend python manage.py migrate
-```
 
 -Выполнить сбор статики бэкенда:
 $docker compose exec backend python manage.py collectstatic --no-input
-```
 
 -Копирование статики в папку подключенную к volumn:
 $docker compose exec backend cp -r /app/collected_static/. /backend_static/static/
